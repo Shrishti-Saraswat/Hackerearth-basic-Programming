@@ -1,0 +1,13 @@
+t=int(input())
+for _ in range(t):
+    g,p=map(int,input().split())
+    N=int(input())
+    cost=0
+    cost1=0
+    for i in range(N):
+        a,b=map(int,input().split())
+        cost=cost+a
+        cost1=cost1+b
+    a=cost*g+cost1*p
+    b=cost1*g+cost*p
+    print(min(a,b))
