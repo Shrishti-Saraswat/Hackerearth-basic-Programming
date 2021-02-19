@@ -1,0 +1,58 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+class Employee:
+    def __init__(self,name,id1,age,gender):
+        self.name=name
+        self.id1=id1
+        self.age=age
+        self.gender=gender
+    
+        
+class Organisation:
+    def __init__(self,name,li):
+        self.Oname=name
+        self.employeeli=li
+    def addEmployee(self,name,id1,age,gender):
+        a=Employee(name,id1,age,gender)
+        self.employeeli.append(a)
+    def getEmployeeCount(self):
+        return len(self.employeeli)
+    def findEmployeeAge(self,n):
+        for i in self.employeeli:
+            if i.id1==n:
+                return i.age
+        return -1
+        
+        
+    def countEmployees(self,s):
+        count=0
+        for i in self.employeeli:
+            if i.age>s:
+                count+=1
+        return count
+    
+#Enter your code here. Read input from STDIN. Print output to STDOUT
+
+if __name__ == '__main__':
+    employees=[]
+    o = Organisation('XYZ',employees)
+    n=int(input())
+    for i in range(n):
+        name=input()
+        id=int(input())
+        age=int(input())
+        gender=input()
+        o.addEmployee(name,id,age,gender)
+
+    id=int(input())
+    age=int(input())
+    print(o.getEmployeeCount())
+    print(o.findEmployeeAge(id))
+    print(o.countEmployees(age))
